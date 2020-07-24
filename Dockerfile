@@ -1,7 +1,5 @@
-FROM hhvm/hhvm-proxygen:latest
+FROM hhvm/hhvm-proxygen:3.30.1
 
-RUN apt-get update -y && apt-get install -y curl
-# Install composer
 RUN mkdir /opt/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/opt/composer
 
@@ -13,11 +11,4 @@ WORKDIR /var/www
 
 ADD site.ini /etc/hhvm/server.ini
 
-#ADD . /root
-#RUN sudo chmod +x /root/start.sh
-
-#ADD hhvm.hdf /etc/hhvm/server.hdf
-#ADD nginx.conf /etc/nginx/sites-available/hack.conf
-#RUN sudo ln -s /etc/nginx/sites-available/hack.conf /etc/nginx/sites-enabled/hack.conf
-
-EXPOSE 8080
+EXPOSE 80
