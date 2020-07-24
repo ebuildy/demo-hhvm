@@ -11,4 +11,4 @@ WORKDIR /var/www
 
 ADD site.ini /etc/hhvm/server.ini
 
-EXPOSE 80
+EXPOSE 8080
